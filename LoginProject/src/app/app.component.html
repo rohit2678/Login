@@ -1,5 +1,26 @@
-<form>
-  <div class="row">
-    <div class="col-xs-12"><app-header></app-header></div>
+<div class="row">
+  <div class="col-xs-12">
+    <app-header></app-header>
   </div>
-</form>
+</div><br>
+
+<div class="row">
+  <div class="col-xs-4"></div>
+  <form #f="ngForm">
+    <div class="col-xs-4">
+      <input type="email" class="form-control" [(ngModel)]="emailId" name="email" id="email" required placeholder="Please Enter Your Email Id"><br>
+      <input type="password" class="form-control" [(ngModel)]="password" minlength="5" name="password" ngModel required placeholder="Please Enter Your Password"><br>
+      <div class="col-xs-6">
+        <button class="btn btn-primary form-control" [disabled]="!f.valid" (click)="onLogin()" type="button">Login</button>
+      </div>
+      <div class="col-xs-6">
+        <button class="btn btn-primary form-control" disabled>Sign Up</button>
+      </div>
+      <div class="col-xs-4"></div>
+      <div class="col-xs-4"><br>
+        <a href="#">Forgot Password?</a>
+      </div>
+      <div class="col-xs-4"></div>
+    </div>
+  </form>
+</div>
