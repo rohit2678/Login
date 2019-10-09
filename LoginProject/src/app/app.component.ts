@@ -13,5 +13,8 @@ export class AppComponent {
 
   onLogin(){
     console.log("user Id", this.emailId, "pass", this.password);
+    
   }
+
+
 }
