@@ -10,10 +10,16 @@ export class AppComponent {
 
   emailId: string;
   password: string;
+  isLoading: boolean = false;
+  isLoggedIn: boolean = false;
 
   onLogin(){
-    console.log("user Id", this.emailId, "pass", this.password);
-    
+    this.isLoading = true;
+    setTimeout(()=>{
+      this.isLoading = false;
+      this.isLoggedIn = true;
+      console.log("user Id", this.emailId, "pass", this.password);
+    },3000);
   }
 
 
