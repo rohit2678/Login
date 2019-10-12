@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private task: TaskService) { }
 
-  @Input() islogged: boolean = false;
+  //@Input() islogged: boolean = false;
   ngOnInit() {
   }
 

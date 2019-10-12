@@ -1,26 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TaskService } from './task.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'LoginProject';
 
   emailId: string;
   password: string;
-  isLoading: boolean = false;
-  isLoggedIn: boolean = false;
+  
+  //isLoggedIn: boolean = false;
 
-  onLogin(){
-    this.isLoading = true;
-    setTimeout(()=>{
-      this.isLoading = false;
-      this.isLoggedIn = true;
-      console.log("user Id", this.emailId, "pass", this.password);
-    },3000);
+  constructor(private task: TaskService, private router: Router){}
+
+  ngOnInit(){
+    if(!this.task.isLoggedIn){
+      this.router.navigateByUrl("/");
+    }
   }
-
-
 }
